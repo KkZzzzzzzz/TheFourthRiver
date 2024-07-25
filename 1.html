@@ -1,203 +1,190 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>The Fourth River</title>
+    <meta charset="UTF-8">
+    <title>The Fourth River</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;1,100&display=swap" rel="stylesheet">
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 100;
+        }
 
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;1,100&display=swap" rel="stylesheet">
+        /* wave speed */
+        @keyframes wave {
+            to {
+                stroke-dashoffset: -1015;
+            }
+        }
 
-	<style type="text/css">
-                 body {
-			margin: 0;
-  padding: 0;
-  font-family: 'Josefin Sans', sans-serif;
-    font-weight: 100;
-		}
+        svg {
+            width: 100%;
+            height: 100%;
+        }
 
-/* wave speed */
-@keyframes wave {
-  to {
-    stroke-dashoffset: -1015;
-  }
-}
+        polyline {
+            animation: wave 10s infinite linear;
+            stroke-dasharray: 0, 0, 25, 990;
+            stroke-dashoffset: 0;
+            stroke-width: 1px;
+            stroke: #000;
+            stroke-linecap: round;
+            fill: none;
+        }
 
-svg {
-  width: 100%;
-  height: 100%;
-}
+        .letter, .letter1, .letter2, .letter3, .letter4, .letter5, 
+        .letter6, .letter7, .letter8, .letter9, .letter10, 
+        .letter11, .letter12, .letter13, .letter14, .letter15 {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 100;
+            font-size: 20px;
+            color: #000;
+            position: absolute;
+            text-decoration: none;
+            cursor: pointer;
+        }
 
-polyline {
-  animation: wave 10s infinite linear;
-  stroke-dasharray: 0, 0, 25, 990;
-  stroke-dashoffset: 0;
-  stroke-width: 1px;
-  stroke: #000;
-  stroke-linecap: round;
-  fill: none;
-}
+        .letter1 { top: 0px; }
+        .letter2 { top: 200px; }
+        .letter3 { top: 300px; }
+        .letter4 { top: 500px; }
+        .letter5 { top: 700px; }
+        .letter6 { top: 900px; }
+        .letter7 { top: 1000px; }
+        .letter8 { top: 1200px; }
+        .letter9 { top: 1400px; }
+        .letter10 { top: 1600px; }
+        .letter11 { top: 1800px; }
+        .letter12 { top: 2000px; }
+        .letter13 { top: 2200px; }
+        .letter14 { top: 2400px; }
+        .letter15 { top: 2600px; }
 
-.letter, .letter1, .letter2, .letter3, .letter4, .letter5, 
-.letter6, .letter7, .letter8, .letter9, .letter10, 
-.letter11, .letter12, .letter13, .letter14, .letter15 {
-  font-family: 'Josefin Sans', sans-serif;
-  font-weight: 100;
-  font-size: 20px;
-  color: #000;
-  position: absolute;
-  left: 0px;
-}
+        #floating-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            padding: 20px;
+            background-color: rgb(0, 0, 0);
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 1;
+            border: none;
+            background-color: black;
+            color: rgb(0, 0, 0);
+        }
 
-.letter1 { top: 0px; }
-.letter2 { top: 200px; }
-.letter3 { top: 300px; }
-.letter4 { top: 500px; }
-.letter5 { top: 700px; }
-.letter6 { top: 900px; }
-.letter7 { top: 1000px; }
-.letter8 { top: 1200px; }
-.letter9 { top: 1400px; }
-.letter10 { top: 1600px; }
-.letter11 { top: 1800px; }
-.letter12 { top: 2000px; }
-.letter13 { top: 2200px; }
-.letter14 { top: 2400px; }
-.letter15 { top: 2600px; }
-
-
-#floating-btn {
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			padding: 20px;
-			background-color: rgb(0, 0, 0);
-			
-			border-radius: 50%;
-			cursor: pointer;
-			z-index: 1;
-			border: none;
-  background-color: black;
-  color: rgb(0, 0, 0);
-			
-		}
-		#circle {
-			position: absolute;
-			border-radius: 50%;
-			width: 100px;
-			height: 100px;
-			top: -100px;
-			left: -100px;
-			background: radial-gradient(circle, white, rgba(255,255,255,0) 70%);
-			opacity: 0;
-			transition: opacity 0.5s ease-out;
-			pointer-events: none;
-			z-index: 0;
-		}
-
-	</style>
+        #circle {
+            position: absolute;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            top: -100px;
+            left: -100px;
+            background: radial-gradient(circle, white, rgba(255,255,255,0) 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease-out;
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
 </head>
 <body>
-<!-- <button id="floating-btn">Flashlight</button> -->
-	<div id="circle"></div>
-<audio id="audio" src="https://audio.jukehost.co.uk/KvMFFXLzhIPydXrb6QJmWsbnF6nz8E53"></audio>
+    <div id="circle"></div>
+    <div id="elements"></div>
+    <audio id="audio" src="https://audio.jukehost.co.uk/KvMFFXLzhIPydXrb6QJmWsbnF6nz8E53"></audio>
+    <audio id="background-audio" autoplay loop>
+        <source src="https://audio.jukehost.co.uk/4QZUTKEh6mZKwgNQRJltZMZtNY9YF0VS" type="audio/mpeg">
+    </audio>
 
-	<div id="elements"></div>
-<audio autoplay loop>
-  <source src="https://audio.jukehost.co.uk/4QZUTKEh6mZKwgNQRJltZMZtNY9YF0VS" type="audio/mpeg">
-</audio>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var width = $(window).width() - 40;
+            var starttime = new Date().getTime();
+            var elements = $('#elements');
+            var audio = new Audio('https://audio.jukehost.co.uk/BJJRuMO4W375ojlnMUc6YL7cU4nopOQH');
+            var backgroundAudio = document.getElementById('background-audio');
 
-
-
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-    var width = $(window).width() - 40;
-    var starttime = new Date().getTime();
-    var elements = $('#elements');
-    var audio = new Audio('https://audio.jukehost.co.uk/BJJRuMO4W375ojlnMUc6YL7cU4nopOQH');
-
-    var letterUrls = [
-        'https://kkzzzzzzzz.github.io/TheFourthRiver/2.html',
-        'https://kkzzzzzzzz.github.io/TheFourthRiver/3.html',
-        'https://kkzzzzzzzz.github.io/TheFourthRiver/4.html',
-        'https://kkzzzzzzzz.github.io/TheFourthRiver/5.html',
-        'https://kkzzzzzzzz.github.io/TheFourthRiver/6.html',
-        'https://kkzzzzzzzz.github.io/TheFourthRiver/2.html',
-        'https://kkzzzzzzzz.github.io/TheFourthRiver/3.html',
-        'https://kkzzzzzzzz.github.io/TheFourthRiver/4.html',
-        'https://kkzzzzzzzz.github.io/TheFourthRiver/5.html',
-        'https://kkzzzzzzzz.github.io/TheFourthRiver/6.html',
-        'https://kkzzzzzzzz.github.io/TheFourthRiver/2.html',
-        'https://kkzzzzzzzz.github.io/TheFourthRiver/3.html',
-        'https://kkzzzzzzzz.github.io/TheFourthRiver/4.html',
-        // 'https://kkzzzzzzzz.github.io/TheFourthRiver/5.html',
-        // 'https://kkzzzzzzzz.github.io/TheFourthRiver/6.html'
-    ];
-
-    var classNames = [
-        'letter1', 'letter2', 'letter3', 'letter4', 'letter5',
-        'letter6', 'letter7', 'letter8', 'letter9', 'letter10',
-        'letter11', 'letter12', 'letter13', 'letter14', 'letter15'
-    ];
-
-    letterUrls.forEach((url, index) => {
-        var letters = url;
-        for (var i = 0; i < letters.length; i++) {
-            $('<a>', {
-                href: url,
-                target: '_blank',
-                html: letters[i]
-            })
-            .addClass(classNames[index])
-            .mouseenter(function() {
-                audio.play();
-            })
-            .mouseleave(function() {
-                audio.pause();
-            })
-            .appendTo(elements);
-        }
-    });
-
-    function run() {
-        var elapsed = new Date().getTime() - starttime;
-        var width = $(window).width() - 40;
-
-        var letterConfigs = [
-            { class: 'letter1', baseTop: 50, speed: 0.05, waveLength: 50 },
-            { class: 'letter2', baseTop: 150, speed: 0.02, waveLength: 80, offset: -20 },
-            { class: 'letter3', baseTop: 250, speed: 0.05, waveLength: 90 },
-            { class: 'letter4', baseTop: 350, speed: 0.08, waveLength: 40, offset: 200 },
-            { class: 'letter5', baseTop: 450, speed: 0.05, waveLength: 60 },
-            { class: 'letter6', baseTop: 550, speed: 0.1, waveLength: 30 },
-            { class: 'letter7', baseTop: 650, speed: 0.03, waveLength: 100 },
-            { class: 'letter8', baseTop: 750, speed: 0.03, waveLength: 50 },
-            { class: 'letter9', baseTop: 850, speed: 0.05, waveLength: 30 },
-            { class: 'letter10', baseTop: 950, speed: 0.1, waveLength: 80 },
-            { class: 'letter11', baseTop: 1050, speed: 0.03, waveLength: 30 },
-            { class: 'letter12', baseTop: 1150, speed: 0.03, waveLength: 100 },
-            { class: 'letter13', baseTop: 1250, speed: 0.05, waveLength: 50 },
-            // { class: 'letter14', baseTop: 1350, speed: 0.1, waveLength: 30 },
-            // { class: 'letter15', baseTop: 1450, speed: 0.05, waveLength: 80 },
-        ];
-
-        letterConfigs.forEach(config => {
-            var pos = (elapsed + (config.offset || 0)) * config.speed;
-            $('a.' + config.class).each(function(index, letter) {
-                var posx = width - (pos + 450 * index) % width;
-                var posy = config.baseTop + Math.sin(posx / config.waveLength) * 20;
-                $(letter).css('left', posx + 'px');
-                $(letter).css('top', posy + 'px');
+            document.addEventListener('click', function() {
+                if (backgroundAudio.paused) {
+                    backgroundAudio.play();
+                }
             });
-        });
-    }
 
-    setInterval(run, 30);
-});
+            var letterUrls = [
+                'https://kkzzzzzzzz.github.io/TheFourthRiver/2.html',
+                'https://kkzzzzzzzz.github.io/TheFourthRiver/3.html',
+                'https://kkzzzzzzzz.github.io/TheFourthRiver/4.html',
+                'https://kkzzzzzzzz.github.io/TheFourthRiver/5.html',
+                'https://kkzzzzzzzz.github.io/TheFourthRiver/6.html',
+                'https://kkzzzzzzzz.github.io/TheFourthRiver/2.html',
+                'https://kkzzzzzzzz.github.io/TheFourthRiver/3.html',
+                'https://kkzzzzzzzz.github.io/TheFourthRiver/4.html'
+            ];
+
+            var classNames = [
+                'letter1', 'letter2', 'letter3', 'letter4', 'letter5',
+                'letter6', 'letter7', 'letter8', 'letter9', 'letter10',
+                'letter11', 'letter12', 'letter13', 'letter14', 'letter15'
+            ];
+
+            letterUrls.forEach((url, index) => {
+                var letters = url.split('');  // Split URL into characters
+                letters.forEach((letter, i) => {
+                    $('<a>', {
+                        href: url,
+                        target: '_blank',
+                        html: letter
+                    })
+                    .addClass(classNames[index])
+                    .mouseenter(function() {
+                        audio.play();
+                    })
+                    .mouseleave(function() {
+                        audio.pause();
+                    })
+                    .appendTo(elements);
+                });
+            });
+
+            function run() {
+                var elapsed = new Date().getTime() - starttime;
+                var width = $(window).width() - 40;
+
+                var letterConfigs = [
+                    { class: 'letter1', baseTop: 50, speed: 0.05, waveLength: 50 },
+                    { class: 'letter2', baseTop: 150, speed: 0.02, waveLength: 80, offset: -20 },
+                    { class: 'letter3', baseTop: 250, speed: 0.05, waveLength: 90 },
+                    { class: 'letter4', baseTop: 350, speed: 0.08, waveLength: 40, offset: 200 },
+                    { class: 'letter5', baseTop: 450, speed: 0.05, waveLength: 60 },
+                    { class: 'letter6', baseTop: 550, speed: 0.1, waveLength: 30 },
+                    { class: 'letter7', baseTop: 650, speed: 0.03, waveLength: 100 },
+                    { class: 'letter8', baseTop: 750, speed: 0.03, waveLength: 50 },
+                    { class: 'letter9', baseTop: 850, speed: 0.05, waveLength: 30 },
+                    { class: 'letter10', baseTop: 950, speed: 0.1, waveLength: 80 },
+                    { class: 'letter11', baseTop: 1050, speed: 0.03, waveLength: 30 },
+                    { class: 'letter12', baseTop: 1150, speed: 0.03, waveLength: 100 },
+                    { class: 'letter13', baseTop: 1250, speed: 0.05, waveLength: 50 }
+                ];
+
+                letterConfigs.forEach(config => {
+                    var pos = (elapsed + (config.offset || 0)) * config.speed;
+                    $('a.' + config.class).each(function(index, letter) {
+                        var posx = width - (pos + 450 * index) % width;
+                        var posy = config.baseTop + Math.sin(posx / config.waveLength) * 20;
+                        $(letter).css('left', posx + 'px');
+                        $(letter).css('top', posy + 'px');
+                    });
+                });
+            }
+
+            setInterval(run, 30);
+        });
 
 
 
