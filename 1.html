@@ -188,7 +188,7 @@ polyline {
         letterConfigs.forEach(config => {
             var pos = (elapsed + (config.offset || 0)) * config.speed;
             $('a.' + config.class).each(function(index, letter) {
-                var posx = width - (pos + 250 * index) % width;
+                var posx = width - (pos + 450 * index) % width;
                 var posy = config.baseTop + Math.sin(posx / config.waveLength) * 20;
                 $(letter).css('left', posx + 'px');
                 $(letter).css('top', posy + 'px');
